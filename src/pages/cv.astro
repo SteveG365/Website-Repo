@@ -5,23 +5,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout title="CV | Steven Glass">
   <section class="section">
     <h1>CV</h1>
-
-    <p class="muted">
-      You can view or download my CV below.
-    </p>
+    <p class="muted">You can view or download my CV below.</p>
 
     <div class="link-row">
-      <a class="button" href="/GLASS_CV.pdf" download>
-        Download CV
-      </a>
-
-      <a class="button secondary" href="/GLASS_CV.pdf" target="_blank">
-        View CV
-      </a>
+      <a class="button" href="/GLASS_CV.pdf" download>Download CV</a>
     </div>
 
     <div style="margin-top: 1.5rem;">
-      <iframe class="cv-frame" src="/GLASS_CV.pdf"></iframe>
+      <iframe
+        class="cv-frame"
+        src="/GLASS_CV.pdf"
+        title="Steven Glass CV"
+      ></iframe>
     </div>
   </section>
 </BaseLayout>

@@ -1,0 +1,183 @@
+---
+const { title = "Steven Glass", description = "Machine Learning and Data Science Portfolio" } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <style>
+      :root {
+        --bg: #f8f9fb;
+        --surface: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --accent: #2563eb;
+        --max-width: 960px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: Inter, system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      body {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        width: min(var(--max-width), calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      header {
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .brand {
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--text);
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+        flex-wrap: wrap;
+      }
+
+      main {
+        padding: 3rem 0;
+      }
+
+      .hero {
+        padding: 3rem 0 2rem 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+      }
+
+      .hero p {
+        max-width: 700px;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .section {
+        margin-top: 3rem;
+      }
+
+      .section h2 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.2rem;
+      }
+
+      .card h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .button {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        padding: 0.7rem 1rem;
+        border-radius: 10px;
+        margin-right: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .button.secondary {
+        background: white;
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+
+      footer {
+        margin-top: 4rem;
+        padding: 2rem 0;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        background: var(--surface);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="brand" href="/">Steven Glass</a>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/cv">CV</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <slot />
+    </main>
+
+    <footer>
+      <div class="container">
+        © 2026 Steven Glass · Machine Learning and Data Science Portfolio
+      </div>
+    </footer>
+  </body>
+</html>

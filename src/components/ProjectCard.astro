@@ -1,0 +1,32 @@
+---
+const { project } = Astro.props;
+---
+
+<article class="card">
+  <h3>{project.data.title}</h3>
+  <p class="muted">{project.data.description}</p>
+
+  {project.data.tags?.length > 0 && (
+    <div class="tags">
+      {project.data.tags.map((tag: string) => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+  )}
+
+  <div class="link-row">
+    <a class="button secondary" href={`/projects/${project.id}`}>Read More</a>
+
+    {project.data.github && (
+      <a class="button secondary" href={project.data.github} target="_blank" rel="noreferrer">
+        GitHub
+      </a>
+    )}
+
+    {project.data.report && (
+      <a class="button secondary" href={project.data.report} target="_blank" rel="noreferrer">
+        Report
+      </a>
+    )}
+  </div>
+</article>

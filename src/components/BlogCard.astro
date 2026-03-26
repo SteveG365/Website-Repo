@@ -1,0 +1,10 @@
+---
+const { post } = Astro.props;
+---
+
+<article class="card">
+  <h3>{post.data.title}</h3>
+  <p class="muted">{post.data.description}</p>
+  <p class="muted">{post.data.pubDate.toLocaleDateString()}</p>
+  <a class="button secondary" href={`/blog/${post.id}`}>Read Post</a>
+</article>

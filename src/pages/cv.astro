@@ -5,16 +5,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout title="CV | Steven Glass">
   <section class="section">
     <h1>CV</h1>
-    <p>
-      Add your CV PDF later in <code>public/</code>. For now, this is a placeholder.
+
+    <p class="muted">
+      You can view or download my CV below.
     </p>
 
-    <a class="button" href="/cv.pdf" download>Download CV</a>
+    <div class="link-row">
+      <a class="button" href="/GLASS_CV.pdf" download>
+        Download CV
+      </a>
 
-    <div class="card" style="margin-top: 1rem;">
-      <p class="muted">
-        Once you add your file as <code>public/cv.pdf</code>, it can also be embedded here.
-      </p>
+      <a class="button secondary" href="/GLASS_CV.pdf" target="_blank">
+        View CV
+      </a>
+    </div>
+
+    <div style="margin-top: 1.5rem;">
+      <iframe class="cv-frame" src="/GLASS_CV.pdf"></iframe>
     </div>
   </section>
 </BaseLayout>

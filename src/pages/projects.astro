@@ -4,6 +4,10 @@ import ProjectCard from "../components/ProjectCard.astro";
 import { getCollection } from "astro:content";
 
 const projects = await getCollection("projects");
+
+const sortedProjects = projects.sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
 ---
 
 <BaseLayout title="Projects | Steven Glass">
@@ -14,7 +18,7 @@ const projects = await getCollection("projects");
     </p>
 
     <div class="grid">
-      {projects.map((project) => (
+      {sortedProjects.map((project) => (
         <ProjectCard project={project} />
       ))}
     </div>

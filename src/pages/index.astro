@@ -1,5 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const projects = await getCollection("projects");
+
+const featuredProjects = projects
+  .filter(p => p.data.featured)
+  .slice(0, 2);
+
+const posts = await getCollection("blog");
+
+const sortedPosts = posts.sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const latestPost = sortedPosts[0];
 ---
 
 <BaseLayout title="Steven Glass | Portfolio">
@@ -18,34 +34,34 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <section class="section">
     <h2>Featured Projects</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>Variational Autoencoder Project</h3>
-        <p class="muted">
-          Placeholder for a project exploring variational autoencoders,
-          generative modelling, and latent representations.
-        </p>
-      </article>
 
-      <article class="card">
-        <h3>Quantum State Tomography Project</h3>
-        <p class="muted">
-          Placeholder for a project on machine learning methods for quantum
-          state reconstruction and physically valid inference.
-        </p>
-      </article>
+    <div class="grid">
+      {featuredProjects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
     </div>
   </section>
 
+  <!-- 🔥 Latest Blog Post -->
   <section class="section">
     <h2>Latest Writing</h2>
-    <div class="card">
-      <h3>Welcome Post</h3>
-      <p class="muted">
-        A blog section is included from the start and can later be expanded
-        with technical posts, project reflections, and write-ups.
-      </p>
-      <a href="/blog">Go to Blog</a>
-    </div>
+
+    {latestPost && (
+      <div class="card">
+        <h3>{latestPost.data.title}</h3>
+
+        <p class="muted">
+          {latestPost.data.pubDate.toLocaleDateString()}
+        </p>
+
+        <p class="muted">
+          {latestPost.data.description}
+        </p>
+
+        <a class="button secondary" href={`/blog/${latestPost.id}`}>
+          Read Post
+        </a>
+      </div>
+    )}
   </section>
 </BaseLayout>

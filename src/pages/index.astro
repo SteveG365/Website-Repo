@@ -19,7 +19,7 @@ const latestPost = sortedPosts[0];
 ---
 
 <BaseLayout title="Steven Glass | Portfolio">
-  <section class="hero">
+  <section class="hero hero--wide">
     <h1>Steven Glass</h1>
     <p>Machine Learning and Data Science Portfolio</p>
     <p>
@@ -28,6 +28,16 @@ const latestPost = sortedPosts[0];
       posts and my CV.
     </p>
 
+    <p>
+      In case you wonder what I look like, see below my face 
+      reconstructed using a varying number of principal components.
+    </p>
+    <img
+      class="hero-banner"
+      src="/images/PCA_face_Horiz.png"
+      alt="Horizontal PCA face visualization"
+    />
+    
     <a class="button" href="/projects">View Projects</a>
     <a class="button secondary" href="/cv">View CV</a>
   </section>
@@ -42,7 +52,6 @@ const latestPost = sortedPosts[0];
     </div>
   </section>
 
-  <!-- 🔥 Latest Blog Post -->
   <section class="section">
     <h2>Latest Writing</h2>
 

@@ -13,4 +13,4 @@ featured: true
 - Train an **Restricted Boltzmann Machine** using Tensorflow.keras on Ising configurations to learn correlations across temperatures.
 - Generate new configurations and compare observables (magnetization, energy) to the true model.
 - CD-k (and optionally PCD) training.
-- Supervised and uploaded with permission from Dr. Kriel (hkriel@sun.ac.za), Stellenbosch University
+- Supervised by Dr. Kriel (hkriel@sun.ac.za), Stellenbosch University

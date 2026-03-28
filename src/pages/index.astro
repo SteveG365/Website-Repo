@@ -6,7 +6,7 @@ import ProjectCard from "../components/ProjectCard.astro";
 const projects = await getCollection("projects");
 
 const featuredProjects = projects
-  .filter(p => p.data.featured)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 2);
 
 const posts = await getCollection("blog");
